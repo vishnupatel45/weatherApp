@@ -18,10 +18,16 @@ function App() {
   const fetchWeatherData = async (city) => {
     if (!city) return;
     try {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+      let response;
+      if (city.includes(',')) {
+        const [zip, country] = city.split(',').map(str => str.trim());
+        response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},${country}&appid=${apiKey}`);
+      } else {
+        response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+      }
       return response.data;
     } catch (error) {
-      console.error('Error in fetching city weather data:', error);
+      console.error('Error in fetching weather data:', error);
     }
   };
 
@@ -141,7 +147,7 @@ function App() {
                     <span className='bi-geo-alt-fill btn btn-dark text-light'></span>
                     <input
                       type='text'
-                      placeholder='Search City'
+                      placeholder='Search City OR zip,country'
                       size={40}
                       className='search'
                       value={searchCity}
@@ -157,7 +163,7 @@ function App() {
             <span className='bi-geo-alt-fill btn btn-dark text-light'></span>
             <input
               type='text'
-              placeholder='Search City'
+              placeholder='Search City OR zip,country'
               size={40}
               className='search'
               value={searchCity}
