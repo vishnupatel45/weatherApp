@@ -139,6 +139,7 @@ function App() {
           <div className='me-2' data-bs-toggle="modal" data-bs-target="#multiplecity">
             <span className='bi-plus btn btn-dark text-light'></span>
           </div>
+          {/* search bar multiplecitys weathers */}
           <div className='modal fade' id='multiplecity'>
             <div className='modal-dialog'>
               <div className='modal-content'>
@@ -171,6 +172,7 @@ function App() {
             />
             <span className='bi-search btn btn-dark' onClick={handleSearchCity}></span>
           </div>
+          {/* Implemented darkmode and lightmode  */}
           <div className='form-switch'>
             <input
               type="checkbox"
@@ -181,6 +183,7 @@ function App() {
           </div>
         </header>
         <section>
+          {/* weatehrDisplay is a function which return a container all city weather */}
           <main className='mt-2'>
             {weatherData ? (
               <WeatherDisplay data={weatherData} temp={temp} setTemp={setTemp} date={date} />
@@ -190,6 +193,7 @@ function App() {
               <div>Loading location...</div>
             )}
           </main>
+          {/* this main section is displayed for show the all multiplecity weather  */}
           <main className='mt-2'>
             {cityArray.length > 0 && (
               <div className='MultLocation mt-2 p-2 rounded-4 {darkMode?bg-dark :bg-light}'>
