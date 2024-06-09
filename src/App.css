@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Base styles */
+.app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: black;
+}
+
+.dark-mode .city,
+.dark-mode .todayHighlight,
+.dark-mode .MultLocation {
+  background-color: #373A40;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Light mode styles */
+.light-mode {
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.light-mode .city,
+.light-mode .todayHighlight,
+.light-mode .MultLocation {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+/* Component-specific styles */
+.humidity, .speed {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  height: 150px;
+  width: 200px;
+  color: white;
+  padding: 10px;
+  margin: 5px;
+}
+
+.speed {
+  background-image: url(./aserts/speed.png);
+}
+
+.humidity {
+  background-image: url(./aserts/humuidity.png);
+}
+
+.serchcitys {
+  display: flex;
+}
+.multlocationmain {
+  height: 250px;
+  overflow: auto;
+}
+
+/* Cursor styles */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-text {
+  cursor: text;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+@media only screen and (orientation: portrait) {
+  .row{
+    display: block;
   }
 }
+
