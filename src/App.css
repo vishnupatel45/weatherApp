@@ -73,10 +73,47 @@
 .cursor-default {
   cursor: default;
 }
+.row{
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  height: 180px;
+  width: 400px;
+}
+.form-switch{
+  margin-left: 20px;
+}
+.todayHighlight{
+  margin-left: 10px;
+  height: 220px;
+}
 
 @media only screen and (orientation: portrait) {
   .row{
     display: block;
+    width: auto;
+  }
+  .search{
+    width: 150px;
+  }
+  .form-switch{
+    margin-left: 20px;
+  }
+  .serchcitys{
+    display: block;
+  }
+  .main{
+    width: 100%;
+  }
+  .multlocationmain {
+    height: 150px;
+    overflow: auto;
+  }
+  .row{
+    display: grid;
+  }
+  .todayHighlight{
+    margin-left: 0px;
+    margin-top: 10px;
   }
 }
 
